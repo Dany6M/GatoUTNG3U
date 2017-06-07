@@ -212,12 +212,14 @@ public class CatGame extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(102, 0, 153));
         jLabel4.setText("Player 2");
 
+        txtPlayer1.setEditable(false);
         txtPlayer1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPlayer1ActionPerformed(evt);
             }
         });
 
+        txtPlayer2.setEditable(false);
         txtPlayer2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtPlayer2MouseEntered(evt);
@@ -450,7 +452,7 @@ public class CatGame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "¡Felicidades ha ganado:" + txtPlayer2.getText() + " !");
         }
     }//Fin verificaGanador
-    
+
     /*Metodo que verifica la propiedad actionCommand para checar el empate*/
     private void verEmpate() {
         if ((btnCel1.getActionCommand() == "1" || btnCel1.getActionCommand() == "2")
@@ -462,9 +464,18 @@ public class CatGame extends javax.swing.JFrame {
                 && (btnCel7.getActionCommand() == "1" || btnCel7.getActionCommand() == "2")
                 && (btnCel8.getActionCommand() == "1" || btnCel8.getActionCommand() == "2")
                 && (btnCel9.getActionCommand() == "1" || btnCel9.getActionCommand() == "2")) {
-            JOptionPane.showMessageDialog(null, "¡Juego Empatado, presiona ''Reset'' para restablecer el juego!");
+
+            try {
+                AePlayWave aw;
+                URL url = PlayAudio.class.getResource("/audio/fail.wav");
+                aw = new AePlayWave(url);
+                aw.start();
+                JOptionPane.showMessageDialog(null, "¡Juego Empatado, presiona ''Reset'' para restablecer el juego!");
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(PlayAudio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
-         
     }
 
     private void btnCel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCel1ActionPerformed
@@ -574,7 +585,7 @@ public class CatGame extends javax.swing.JFrame {
                 btnCel4.setActionCommand("2");
                 isTurno = 1;
                 this.verificaGanador();
-                 verEmpate();
+                verEmpate();
             }
         } else {
             falla();
@@ -591,13 +602,13 @@ public class CatGame extends javax.swing.JFrame {
                 btnCel5.setActionCommand("1");
                 isTurno = 2;
                 this.verificaGanador();
-                 verEmpate();
+                verEmpate();
             } else {
                 btnCel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/o.png")));
                 btnCel5.setActionCommand("2");
                 isTurno = 1;
                 this.verificaGanador();
-                 verEmpate();
+                verEmpate();
             }
         } else {
             falla();
@@ -634,13 +645,13 @@ public class CatGame extends javax.swing.JFrame {
                 btnCel7.setActionCommand("1");
                 isTurno = 2;
                 this.verificaGanador();
-                 verEmpate();
+                verEmpate();
             } else {
                 btnCel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/o.png")));
                 btnCel7.setActionCommand("2");
                 isTurno = 1;
                 this.verificaGanador();
-                 verEmpate();
+                verEmpate();
             }
         } else {
             falla();
@@ -657,13 +668,13 @@ public class CatGame extends javax.swing.JFrame {
                 btnCel8.setActionCommand("1");
                 isTurno = 2;
                 this.verificaGanador();
-                 verEmpate();
+                verEmpate();
             } else {
                 btnCel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/o.png")));
                 btnCel8.setActionCommand("2");
                 isTurno = 1;
                 this.verificaGanador();
-                 verEmpate();
+                verEmpate();
             }
         } else {
             falla();
@@ -680,7 +691,7 @@ public class CatGame extends javax.swing.JFrame {
                 btnCel9.setActionCommand("1");
                 isTurno = 2;
                 this.verificaGanador();
-                 verEmpate();
+                verEmpate();
             } else {
                 btnCel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/o.png")));
                 btnCel9.setActionCommand("2");
