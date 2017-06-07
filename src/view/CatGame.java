@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
  * @author Daniel Aguilar
  */
 public class CatGame extends javax.swing.JFrame {
+
     int isTurno;
 
     /**
@@ -265,7 +266,7 @@ public class CatGame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     /*Este metodo restaura todos los botones, inserta un imagen de incio 
     y anula el valor en la propiedad actionCommand*/
     private void restaura() {
@@ -449,6 +450,22 @@ public class CatGame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "¡Felicidades ha ganado:" + txtPlayer2.getText() + " !");
         }
     }//Fin verificaGanador
+    
+    /*Metodo que verifica la propiedad actionCommand para checar el empate*/
+    private void verEmpate() {
+        if ((btnCel1.getActionCommand() == "1" || btnCel1.getActionCommand() == "2")
+                && (btnCel2.getActionCommand() == "1" || btnCel2.getActionCommand() == "2")
+                && (btnCel3.getActionCommand() == "1" || btnCel3.getActionCommand() == "2")
+                && (btnCel4.getActionCommand() == "1" || btnCel4.getActionCommand() == "2")
+                && (btnCel5.getActionCommand() == "1" || btnCel5.getActionCommand() == "2")
+                && (btnCel6.getActionCommand() == "1" || btnCel6.getActionCommand() == "2")
+                && (btnCel7.getActionCommand() == "1" || btnCel7.getActionCommand() == "2")
+                && (btnCel8.getActionCommand() == "1" || btnCel8.getActionCommand() == "2")
+                && (btnCel9.getActionCommand() == "1" || btnCel9.getActionCommand() == "2")) {
+            JOptionPane.showMessageDialog(null, "¡Juego Empatado, presiona ''Reset'' para restablecer el juego!");
+        }
+         
+    }
 
     private void btnCel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCel1ActionPerformed
         miau();
@@ -458,11 +475,13 @@ public class CatGame extends javax.swing.JFrame {
                 btnCel1.setActionCommand("1");
                 this.verificaGanador();
                 isTurno = 2;
+                verEmpate();
             } else {
                 btnCel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/o.png")));
                 btnCel1.setActionCommand("2");
                 isTurno = 1;
                 this.verificaGanador();
+                verEmpate();
             }
         } else {
             falla();
@@ -504,11 +523,13 @@ public class CatGame extends javax.swing.JFrame {
                 btnCel2.setActionCommand("1");
                 this.verificaGanador();
                 isTurno = 2;
+                verEmpate();
             } else {
                 btnCel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/o.png")));
                 btnCel2.setActionCommand("2");
                 isTurno = 1;
                 this.verificaGanador();
+                verEmpate();
             }
         } else {
             falla();
@@ -525,11 +546,13 @@ public class CatGame extends javax.swing.JFrame {
                 btnCel3.setActionCommand("1");
                 isTurno = 2;
                 this.verificaGanador();
+                verEmpate();
             } else {
                 btnCel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/o.png")));
                 btnCel3.setActionCommand("2");
                 isTurno = 1;
                 this.verificaGanador();
+                verEmpate();
             }
         } else {
             falla();
@@ -544,11 +567,14 @@ public class CatGame extends javax.swing.JFrame {
                 btnCel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/x.png")));
                 btnCel4.setActionCommand("1");
                 isTurno = 2;
+                this.verificaGanador();
+                verEmpate();
             } else {
                 btnCel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/o.png")));
                 btnCel4.setActionCommand("2");
                 isTurno = 1;
                 this.verificaGanador();
+                 verEmpate();
             }
         } else {
             falla();
@@ -565,11 +591,13 @@ public class CatGame extends javax.swing.JFrame {
                 btnCel5.setActionCommand("1");
                 isTurno = 2;
                 this.verificaGanador();
+                 verEmpate();
             } else {
                 btnCel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/o.png")));
                 btnCel5.setActionCommand("2");
                 isTurno = 1;
                 this.verificaGanador();
+                 verEmpate();
             }
         } else {
             falla();
@@ -584,11 +612,13 @@ public class CatGame extends javax.swing.JFrame {
                 btnCel6.setActionCommand("1");
                 isTurno = 2;
                 this.verificaGanador();
+                verEmpate();
             } else {
                 btnCel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/o.png")));
                 btnCel6.setActionCommand("2");
                 isTurno = 1;
                 this.verificaGanador();
+                verEmpate();
             }
         } else {
             falla();
@@ -604,11 +634,13 @@ public class CatGame extends javax.swing.JFrame {
                 btnCel7.setActionCommand("1");
                 isTurno = 2;
                 this.verificaGanador();
+                 verEmpate();
             } else {
                 btnCel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/o.png")));
                 btnCel7.setActionCommand("2");
                 isTurno = 1;
                 this.verificaGanador();
+                 verEmpate();
             }
         } else {
             falla();
@@ -625,11 +657,13 @@ public class CatGame extends javax.swing.JFrame {
                 btnCel8.setActionCommand("1");
                 isTurno = 2;
                 this.verificaGanador();
+                 verEmpate();
             } else {
                 btnCel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/o.png")));
                 btnCel8.setActionCommand("2");
                 isTurno = 1;
                 this.verificaGanador();
+                 verEmpate();
             }
         } else {
             falla();
@@ -646,11 +680,13 @@ public class CatGame extends javax.swing.JFrame {
                 btnCel9.setActionCommand("1");
                 isTurno = 2;
                 this.verificaGanador();
+                 verEmpate();
             } else {
                 btnCel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/o.png")));
                 btnCel9.setActionCommand("2");
                 isTurno = 1;
                 this.verificaGanador();
+                verEmpate();
             }
         } else {
             falla();
@@ -679,16 +715,24 @@ public class CatGame extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CatGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CatGame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CatGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CatGame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CatGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CatGame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CatGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CatGame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
